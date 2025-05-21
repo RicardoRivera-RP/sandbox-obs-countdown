@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Starting Stream Countdown</title>
+  <style>
+    /* full-screen flex container */
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      background: transparent;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+    /* your logo */
+    #logo {
+      max-width: 60%;    /* adjust to taste */
+      margin-bottom: 2%;
+    }
+    /* label above timer */
+    #label {
+      font-size: 2.5rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    /* the countdown box */
+    #countdown {
+      background: linear-gradient(90deg, #ff0088, #ffcd00);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 4rem;
+      font-weight: bold;
+      color: #000;
+      box-shadow: 0 0 20px rgba(255, 205, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <img id="logo" src="sandbox_logo.png" alt="Sandbox Roleplay Logo">
+  <div id="label">Starting Stream In</div>
+  <div id="countdown">05:00</div>
+
+<script>
+  const START_SECONDS = 5 * 60;
+  let remaining, timer;
+
+  // update display
+  const disp = document.getElementById('countdown');
+  function tick() {
+    const m = Math.floor(remaining / 60),
+          s = remaining % 60;
+    disp.textContent =
+      String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    if (remaining > 0) remaining--;
+    else clearInterval(timer);
+  }
+
+  // (re)start countdown
+  function startTimer() {
+    remaining = START_SECONDS;
+    clearInterval(timer);
+    tick();
+    timer = setInterval(tick, 1000);
+  }
+
+  // on initial load
+  window.addEventListener('load', startTimer);
+
+  // when OBS hides/shows the page, the Visibility API fires
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) startTimer();
+  });
+</script>
+
+
+</body>
+</html>
