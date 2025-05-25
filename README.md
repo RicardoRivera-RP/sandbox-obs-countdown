@@ -1,2 +1,2 @@
 # sandbox-obs-countdown
-this is a "starting stream in 5 minutes" overlay for SandBoxRP Streamers
+this is a overlay package for SandboxRP Streamers
