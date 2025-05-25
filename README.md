@@ -1,7 +1,7 @@
 # sandbox-obs-countdown
 This is a basic overlay package for SandboxRP streamers.
 
-To adjust the personal discord overlay with your own discord link, you will need to open the personal_discord.html file in text editor or any code-editing software you may have and replace the discord link in line 31 with your own link. (Example of the code included below).
+To adjust the personal discord overlay with your own discord link, you will need to open the personal_discord.html file in text editor or any code-editing software you may have and replace the discord link in line 31 with your own link. (Example of the code included below). If you need any assistance changing the link, contact kingpeepolo on discord.
 
 Example of the code you need to edit for the personal discord overlay:
 ![image](https://github.com/user-attachments/assets/1de1cc9c-788d-42ff-8742-60113ec97533)
